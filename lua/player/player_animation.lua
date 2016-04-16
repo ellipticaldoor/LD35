@@ -25,6 +25,7 @@ function player_animation.load()
 	})
 
 	player.animation:switch(player.current_animation)
+	player.animation:switch 'quieto'
 end
 
 

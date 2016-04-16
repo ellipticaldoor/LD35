@@ -10,8 +10,8 @@ function level.load()
 	ground_fixture = love.physics.newFixture( ground, ground_shape)
 
 	player_skin = love.graphics.newImage('images/player.png')
-	player_body = love.physics.newBody(world,200,0, 'dynamic')
-	player_shape = love.physics.newRectangleShape( 0,0,300,300)
+	player_body = love.physics.newBody(world, 200, 0, 'dynamic')
+	player_shape = love.physics.newRectangleShape( 0, 0, 300, 300)
 	player_fixture = love.physics.newFixture(player_body, player_shape)
 	player_body:setMassData(player_shape:computeMass( 80 ))
 

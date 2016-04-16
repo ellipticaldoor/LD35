@@ -6,7 +6,7 @@ function player.load()
 	player.vel = 800 -- velocidad del player
 	player.height = 100
 	player.can_move = true
-	player.current_animation = 'walk_right'
+	player.current_animation = 'quieto'
 end
 
 
@@ -23,19 +23,17 @@ end
 
 
 function player.move(dt)
-	-- if love.keyboard.isDown( 'right', 'left', 'space' ) == false then
-	-- 	if player.current_animation == 'quieto' then
-	-- 		print("lol")
-	-- 	else
-	-- 		player.current_animation = 'quieto'
-	-- 		player.animation:switch 'quieto'
-	-- 	end
-	-- end
+	if love.keyboard.isDown( 'right', 'left', 'space' ) == false then
+		if player.current_animation ~= 'quieto' then
+			player.current_animation = 'quieto'
+			player.animation:switch 'quieto'
+		end
+	end
 
 	if love.keyboard.isDown('right') then
-		if player.current_animation == 'walk_left' then
+		if player.current_animation ~= 'walk_right' then
 			player.current_animation = 'walk_right'
-			player.animation:switch 'walk_right'
+			player.animation:switch(player.current_animation)
 		end
 
 		if player_body:getX() > 400 then
@@ -51,9 +49,9 @@ function player.move(dt)
 	end
 
 	if love.keyboard.isDown('left') then
-		if player.current_animation == 'walk_right' then
+		if player.current_animation ~= 'walk_left' then
 			player.current_animation = 'walk_left'
-			player.animation:switch 'walk_left'
+			player.animation:switch(player.current_animation)
 		end
 
 		if level.bg_posx < 0 then
