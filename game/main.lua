@@ -1,7 +1,11 @@
+require "/lua/level"
+require "/lua/player"
+
 math.randomseed( os.time() )
 
 function love.load()
-
+	DRAW_LEVEL()
+	DRAW_PLAYER()
 end
 
 function love.update(dt)
