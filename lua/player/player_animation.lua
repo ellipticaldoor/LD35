@@ -3,12 +3,28 @@ player_animation = {}
 function player_animation.load()
 	player.animation = sodapop.newAnimatedSprite(player_body:getX(), player_body:getY())
 
-	player.animation:addAnimation('walk', {
-		image = love.graphics.newImage '/images/player_walk.png',
+	player.animation:addAnimation('walk_right', {
+		image = love.graphics.newImage '/images/player_walk_right.png',
 		frameWidth = 840/4,
 		frameHeight = 298,
 		frames = {{1, 1, 4, 1, .15}}
 	})
+
+	player.animation:addAnimation('walk_left', {
+		image = love.graphics.newImage '/images/player_walk_left.png',
+		frameWidth = 840/4,
+		frameHeight = 298,
+		frames = {{1, 1, 4, 1, .15}}
+	})
+
+	player.animation:addAnimation('quieto', {
+		image = love.graphics.newImage '/images/player_walk_right.png',
+		frameWidth = 840/4,
+		frameHeight = 298,
+		frames = {{1, 1, 1, 1, .15}}
+	})
+
+	player.animation:switch(player.current_animation)
 end
 
 
