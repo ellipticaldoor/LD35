@@ -1,6 +1,9 @@
-require "/lua/level"
-require "/lua/player"
-require "/lua/gui"
+local sodapop = require '/lua/lib/sodapop'
+
+require '/lua/level'
+require '/lua/player/player'
+require '/lua/player/animation'
+require '/lua/gui'
 
 math.randomseed( os.time() )
 
