@@ -14,6 +14,6 @@ function level.math(dt)
 
 end
 
-function DRAW_LEVEÑ()
+function DRAW_LEVEL()
 	level.draw()
 end
