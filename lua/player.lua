@@ -1,10 +1,9 @@
 player = {}
 
 function player.load()
-	player.live = 200
 	player.posx = 100 -- posición eje x
 	player.posy = 540 -- posición eje y
-	player.vel = 1000 -- velocidad del player
+	player.vel = 800 -- velocidad del player
 	player.height = 100
 	player.can_move = true
 end
