@@ -10,7 +10,7 @@ end
 
 function gui.draw()
 	-- barra de vida
-	love.graphics.setColor(149, 165, 166)
+	love.graphics.setColor(236, 240, 241)
 	love.graphics.rectangle("fill", gui.x_pos, gui.y_pos, gui.width, gui.height)
 
 	love.graphics.setColor(231, 76, 60)

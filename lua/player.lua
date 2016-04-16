@@ -2,16 +2,18 @@ player = {}
 
 function player.load()
 	player.live = 200
-	player.x_pos = 100
-	player.y_pos = 600
+	player.posx = 100 -- posición eje x
+	player.posy = 540 -- posición eje y
 	player.vel = 1000 -- velocidad del player
+	player.height = 100
+	player.can_move = true
 end
 
 
 function player.draw()
 	-- Dibujar el player
-	love.graphics.setColor(52, 73, 94)
-	love.graphics.rectangle("fill", player.x_pos, player.y_pos, 100, 100)
+	love.graphics.setColor(236, 240, 241)
+	love.graphics.rectangle("fill", player.posx, player.posy, player.height, 100)
 end
 
 
@@ -22,19 +24,24 @@ end
 
 function player.move(dt)
 	if love.keyboard.isDown('right') then
-		player.x_pos = player.x_pos + player.vel * dt
+		if player.posx > 400 then
+			player.can_move = false
+		else
+			player.can_move = true
+			player.posx = player.posx + player.vel * dt
+		end
+
+		if player.can_move == false then
+			level.bg_posx = level.bg_posx - player.vel * dt
+		end
 	end
 
 	if love.keyboard.isDown('left') then
-		player.x_pos = player.x_pos - player.vel * dt
-	end
-
-	if love.keyboard.isDown('up') then
-		player.y_pos = player.y_pos - player.vel * dt
-	end
-
-	if love.keyboard.isDown('down') then
-		player.y_pos = player.y_pos + player.vel * dt
+		if level.bg_posx < 0 then
+			level.bg_posx = level.bg_posx + player.vel * dt
+		else
+			player.posx = player.posx - player.vel * dt
+		end
 	end
 end
 
