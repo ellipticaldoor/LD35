@@ -30,9 +30,9 @@ function level.draw()
 	love.graphics.setColor(41, 128, 185)
 	love.graphics.rectangle('fill', 0, level.ground_level, 1280, 200)
 
-	love.graphics.setColor(255, 255, 255)
 	-- Draws the ground.
-	love.graphics.polygon('line', ground:getWorldPoints(ground_shape:getPoints()))
+	-- love.graphics.setColor(255, 255, 255)
+	-- love.graphics.polygon('line', ground:getWorldPoints(ground_shape:getPoints()))
 end
 
 function level.update(dt)

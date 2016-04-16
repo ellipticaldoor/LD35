@@ -11,8 +11,8 @@ end
 
 function player.draw()
 	-- Dibujar el player
-	love.graphics.setColor(255,255,255)
-	love.graphics.draw(player_skin, player_body:getX(), player_body:getY(), player_body:getAngle(),0.5,0.5,0,0)
+	-- love.graphics.setColor(255,255,255)
+	-- love.graphics.draw(player_skin, player_body:getX(), player_body:getY(), player_body:getAngle(),0.5,0.5,0,0)
 end
 
 
