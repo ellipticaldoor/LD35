@@ -1,16 +1,16 @@
 player = {}
 
 function player.load()
-	player.lives = 1
-	player.x_pos = 0
-	player.y_pos = 0
+	player.live = 200
+	player.x_pos = 100
+	player.y_pos = 600
 	player.vel = 1000 -- velocidad del player
 end
 
 
 function player.draw()
 	-- Dibujar el player
-	love.graphics.setColor(192, 57, 43)
+	love.graphics.setColor(52, 73, 94)
 	love.graphics.rectangle("fill", player.x_pos, player.y_pos, 100, 100)
 end
 
@@ -40,8 +40,8 @@ end
 
 
 function UPDATE_PLAYER(dt)
-	player.update(dt)
 	player.move(dt)
+	player.update(dt)
 end
 
 

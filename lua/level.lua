@@ -6,7 +6,7 @@ end
 
 function level.draw()
 	-- Dibujar el fondo
-	love.graphics.setColor(52, 152, 219)
+	love.graphics.setColor(52, 152, 219, 255)
 	love.graphics.rectangle("fill", 0, 0, 1280, 720)
 end
 
