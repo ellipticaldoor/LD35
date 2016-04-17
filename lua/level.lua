@@ -75,7 +75,9 @@ function level.load()
 		{ i = images.sphere2, r = 20 , ox = 20, oy = 20},
 	}
 
-	addSpheres1(balldefs[1], 400, 400, 1)
+	addSpheres1(balldefs[1], 950+1280+320, 200, 1)
+	addSpheres1(balldefs[1], 280+1280*2+320*2, 150, 2)
+	addSpheres1(balldefs[1], 1000+1280*3+320*3, 180, 3)
 
 	level.bg_posx = 0
 
@@ -111,8 +113,11 @@ function beginContact(a, b, c)
 	local bb=b:getUserData()
 	text = "Collided: " .. aa .. " and " .. bb
 
+	print(text)
+
 	if aa == "Player" and bb ~= "Ground" then
 		table.insert(toRemove,tonumber(bb))
+		yesChoice()
 	end
 end
 
@@ -176,9 +181,15 @@ function level.syncPos(direction, dt)
 		for i, v in ipairs(platforms) do
 			v.b:setX( v.b:getX() + vel )
 		end
+		for i, v in ipairs(spheres1) do
+			v.b:setX( v.b:getX() + vel )
+		end
 	else
 		level.bg_posx = level.bg_posx - player.vel/200 * dt
 		for i, v in ipairs(platforms) do
+			v.b:setX( v.b:getX() - vel )
+		end
+		for i, v in ipairs(spheres1) do
 			v.b:setX( v.b:getX() - vel )
 		end
 	end

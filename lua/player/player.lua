@@ -4,7 +4,7 @@ function player.load()
 	-- player.posx = 100 -- posición eje x
 	-- player.posy = 540 -- posición eje y
 	--player.vel = 350 -- velocidad del player
-	player.vel = 1000 -- velocidad del player
+	player.vel = 2000 -- velocidad del player
 	player.height = 100
 	player.can_move = true
 	player.current_animation = 'quieto'

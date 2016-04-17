@@ -35,25 +35,33 @@ function thoughts.update(dt)
 
 end
 
+function yesChoice()
+	if thoughts.current == 13 then thoughts.current = 14 end
+	if thoughts.current == 10 then thoughts.current = 11 end
+	if thoughts.current == 9 then thoughts.current = 10 end
+	if thoughts.current == 6 then thoughts.current = 7 end
+	if thoughts.current == 3 then thoughts.current = 4 end --
+	if thoughts.current == 2 then thoughts.current = 3 end
+	if thoughts.current == 1 then thoughts.current = 2 end
+end
+
+function noChoice()
+	if thoughts.current == 13 then thoughts.current = 15 end
+	if thoughts.current == 10 then thoughts.current = 12 end
+	if thoughts.current == 9 then thoughts.current = 13 end
+	if thoughts.current == 6 then thoughts.current = 8 end
+	if thoughts.current == 3 then thoughts.current = 5 end
+	if thoughts.current == 2 then thoughts.current = 6 end
+	if thoughts.current == 1 then thoughts.current = 9 end
+end
+
 function thoughts.key(key)
 	if key == 'o' then -- sí
-		if thoughts.current == 13 then thoughts.current = 14 end
-		if thoughts.current == 10 then thoughts.current = 11 end
-		if thoughts.current == 9 then thoughts.current = 10 end
-		if thoughts.current == 6 then thoughts.current = 7 end
-		if thoughts.current == 3 then thoughts.current = 4 end --
-		if thoughts.current == 2 then thoughts.current = 3 end
-		if thoughts.current == 1 then thoughts.current = 2 end
+		yesChoice()
 	end
 
 	if key == 'p' then -- no
-		if thoughts.current == 13 then thoughts.current = 15 end
-		if thoughts.current == 10 then thoughts.current = 12 end
-		if thoughts.current == 9 then thoughts.current = 13 end
-		if thoughts.current == 6 then thoughts.current = 8 end
-		if thoughts.current == 3 then thoughts.current = 5 end
-		if thoughts.current == 2 then thoughts.current = 6 end
-		if thoughts.current == 1 then thoughts.current = 9 end
+		noChoice()
 	end
 end
 
