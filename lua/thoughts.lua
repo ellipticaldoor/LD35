@@ -31,7 +31,16 @@ end
 
 
 function thoughts.update(dt)
-
+	if love.keyboard.isDown('x') then
+		music.track1Volume=music.track1Volume+0.1
+		if(music.track1Volume > 1) then music.track1Volume = 1 end
+		TEsound.volume("bg_music_1", music.track1Volume)
+	end
+	if love.keyboard.isDown('c') then
+		music.track1Volume=music.track1Volume-0.1
+		if(music.track1Volume < 0) then music.track1Volume = 0 end
+		TEsound.volume("bg_music_1", music.track1Volume)
+	end
 end
 
 function thoughts.key(key)
