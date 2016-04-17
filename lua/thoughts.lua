@@ -4,21 +4,21 @@ function thoughts.load()
 	thoughts.current = 1
 
 	thoughts.phrases = {
-		"frase cero",
-			"a - primera frase sí",
-				"aa - segunda frase sí",
-					"aaa - tercera frase sí",
-					"aab - tercera frase no",
-				"ab - segunda frase no",
-					"aba - tercera frase sí",
-					"abb - tercera frase no",
-			"b - primera frase no",
-				"ba - segunda frase sí",
-					"baa - tercera frase sí",
-					"bab - tercera frase no",
-				"bb - segunda frase no",
-					"bba - tercera frase sí",
-					"bbb - tercera frase no",
+		"a - Qué dura la vida de estudiante...",
+			"aa - ¡Aunque no tenga la beca voy a seguir adelante!",
+				"aaa -Nadie dijo que estudiar fuera fácil.",
+					"aab - Estoy decidido a acabar mis estudios, por mi porvenir.",
+					"ab - Esto es muy difícil, me doy por vencido.",
+				"aba - Pero es que sin la beca no puedo asistir mucho a clase...",
+					"abb - Puedo estudiar en casa y aprobar los exámenes, ¡Yo Puedo!",
+					"b - Mejor buscar otra cosa para seguir adelante.",
+			"ba - Me quitan la beca; sin eso no puedo hacer nada...",
+				"baa - Quizás me puedan ayudar en casa, ¿no?",
+					"bab - ¡Con la ayuda de casa puedo seguir estudiando!",
+					"No me han podido ayudar en casa, tengo que dejar los estudios.",
+				"bb - Seguramente no me puedan ayudar en casa...",
+					"bba -  En casa quieren ayudarme, pero no es suficiente.",
+					"bbb - No tengo ninguna motivación para seguir adelante con los estudios.",
 	}
 end
 
