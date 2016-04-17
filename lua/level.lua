@@ -7,7 +7,7 @@ function level.load()
 	}
 
 	-- Physics stuff
-	world = love.physics.newWorld(0, (9.81*32), true)
+	world = love.physics.newWorld(0, (9.81*32*10), true)
 
 	-- Create the ground body at (0, 0) static
 	ground = love.physics.newBody(world, 0, 0, "static")
@@ -25,8 +25,8 @@ function level.load()
 	ground_fixture4 = love.physics.newFixture( ground, ground_shape4)
 
 	player_skin = love.graphics.newImage('images/player.png')
-	player_body = love.physics.newBody(world, 100, 200, 'dynamic')
-	player_shape = love.physics.newRectangleShape( 0, 0, 564/4, 200)
+	player_body = love.physics.newBody(world, 100, 142, 'dynamic')
+	player_shape = love.physics.newRectangleShape( 0, 0, 400/4, 142)
 	player_fixture = love.physics.newFixture(player_body, player_shape)
 	player_body:setMassData(player_shape:computeMass( 1 ))
 
@@ -36,7 +36,7 @@ function level.load()
 		{ i = images.levelbg, w = 200, h = 40, ox = 0, oy = 0},
 	}
 
-	addPlatform(platforms_defs, 400, 200, 1)
+	addPlatform(platforms_defs, 650, 400, 1)
 	addPlatform(platforms_defs, 1000, 400, 2)
 	addPlatform(platforms_defs, 2000, 400, 3)
 
@@ -64,7 +64,7 @@ function level.draw()
 	-- Draws the platforms
 	for i, v in ipairs(platforms) do
 		if v.b:isActive() then
-			love.graphics.draw(images.platform, v.b:getX(), v.b:getY(), v.b:getAngle(), 1, 1, v.ox, v.oy)
+			love.graphics.draw(images.platform, v.b:getX() - 60, v.b:getY(), v.b:getAngle(), 1, 1, v.ox, v.oy)
 		end
 	end
 end

@@ -64,7 +64,7 @@ function player.move(dt)
 	end
 
 	if love.keyboard.isDown('space') or love.keyboard.isDown('up') then
-		player_body:applyLinearImpulse(0,-10000)
+		player_body:applyLinearImpulse(0,-4000)
 	end
 
 	player_body:applyLinearImpulse(0,1)
