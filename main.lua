@@ -21,10 +21,10 @@ end
 
 function love.update(dt, key)
 	UPDATE_LEVEL(dt)
-	UPDATE_PLAYER(dt)
 	UPDATE_PLAYER_ANIMATION(dt)
 	UPDATE_GUI(dt)
 	UPDATE_THOUGHTS(dt, key)
+	UPDATE_PLAYER(dt)
 
 	local fps=love.timer.getFPS
 	love.window.setTitle("Ludum Dare 30 - "..fps().." FPS")
