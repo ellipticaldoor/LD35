@@ -27,7 +27,7 @@ function thoughts.draw()
 	love.graphics.setColor(236, 240, 241)
 	love.graphics.setFont(f)
 	sizetext = f:getWidth(thoughts.phrases[thoughts.current])
-	love.graphics.print(thoughts.phrases[thoughts.current], (1280-sizetext)/2, 652)
+	love.graphics.print(thoughts.phrases[thoughts.current], (1280-sizetext)/2, 648)
 end
 
 

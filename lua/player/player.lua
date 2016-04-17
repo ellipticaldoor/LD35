@@ -3,8 +3,7 @@ player = {}
 function player.load()
 	-- player.posx = 100 -- posición eje x
 	-- player.posy = 540 -- posición eje y
-	--player.vel = 350 -- velocidad del player
-	player.vel = 2000 -- velocidad del player
+	player.vel = 350 -- velocidad del player
 	player.height = 100
 	player.can_move = true
 	player.current_animation = 'quieto'
@@ -72,7 +71,7 @@ function player.move(dt)
 	end
 
 	if love.keyboard.isDown('space') or love.keyboard.isDown('up') then
-		player_body:applyLinearImpulse(0,-2000)
+		player_body:applyLinearImpulse(0,-1500)
 	end
 
 	player_body:applyLinearImpulse(0,1)

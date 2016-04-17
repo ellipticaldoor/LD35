@@ -115,7 +115,7 @@ function beginContact(a, b, c)
 
 	print(text)
 
-	if aa == "Player" and bb ~= "Ground" then
+	if aa == "Player" and bb ~= "Ground" and bb ~= "platforms" then
 		table.insert(toRemove,tonumber(bb))
 		yesChoice()
 	end
@@ -165,7 +165,7 @@ function addPlatform(def, x, y, i)
 	t.b = love.physics.newBody(world, x, y, "static")
 	t.s = love.physics.newRectangleShape(200, 30)
 	t.f = love.physics.newFixture(t.b, t.s)
-	t.f:setUserData("platforms" .. i)
+	t.f:setUserData("platforms")
 	t.i = def.i
 	t.ox = def.ox
 	t.oy = def.oy
