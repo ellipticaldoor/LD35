@@ -38,8 +38,25 @@ function level.load()
 
 	-- First level platforms
 	addPlatform(platforms_defs, 450+1280+320, 450, 1)
-	addPlatform(platforms_defs, 725+1280+320, 355, 1)
-	addPlatform(platforms_defs, 950+1280+320, 250, 1)
+	addPlatform(platforms_defs, 725+1280+320, 355, 2)
+	addPlatform(platforms_defs, 950+1280+320, 250, 3)
+
+	-- Second level platforms
+	addPlatform(platforms_defs, 300+1280*2+320*2, 200, 4)
+	addPlatform(platforms_defs, 500+1280*2+320*2, 200, 5)
+	addPlatform(platforms_defs, 675+1280*2+320*2, 200, 6)
+	addPlatform(platforms_defs, 950+1280*2+320*2, 350, 7)
+	addPlatform(platforms_defs, 650+1280*2+320*2, 450, 8)
+
+	-- Third level platforms
+	addPlatform(platforms_defs, 500+1280*3+320*3, 230, 9)
+	addPlatform(platforms_defs, 1000+1280*3+320*3, 230, 10)
+	addPlatform(platforms_defs, 650+1280*3+320*3, 450, 11)
+	addPlatform(platforms_defs, 850+1280*3+320*3, 450, 12)
+	-- addPlatform(platforms_defs, 500, 200, 5)
+	-- addPlatform(platforms_defs, 675, 200, 6)
+	-- addPlatform(platforms_defs, 950, 350, 7)
+	-- addPlatform(platforms_defs, 650, 450, 6)
 
 	level.bg_posx = 0
 
