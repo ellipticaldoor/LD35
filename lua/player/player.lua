@@ -62,7 +62,8 @@ function player.move(dt)
 	end
 
 	if love.keyboard.isDown('space') or love.keyboard.isDown('up') then
-		player_body:applyLinearImpulse(0,-8888888)
+		player_body:applyLinearImpulse(0,-2000)
+		print("holas")
 	end
 end
 
