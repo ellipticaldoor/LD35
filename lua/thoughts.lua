@@ -4,21 +4,21 @@ function thoughts.load()
 	thoughts.current = 1
 
 	thoughts.phrases = {
-		"a - Qué dura la vida de estudiante...",
-			"aa - ¡Aunque no tenga la beca voy a seguir adelante!",
-				"aaa -Nadie dijo que estudiar fuera fácil.",
-					"aab - Estoy decidido a acabar mis estudios, por mi porvenir.",
-					"ab - Esto es muy difícil, me doy por vencido.",
-				"aba - Pero es que sin la beca no puedo asistir mucho a clase...",
-					"abb - Puedo estudiar en casa y aprobar los exámenes, ¡Yo Puedo!",
-					"b - Mejor buscar otra cosa para seguir adelante.",
-			"ba - Me quitan la beca; sin eso no puedo hacer nada...",
-				"baa - Quizás me puedan ayudar en casa, ¿no?",
-					"bab - ¡Con la ayuda de casa puedo seguir estudiando!",
+		"Que dura la vida de estudiante...",
+			"¡Aunque no tenga la beca voy a seguir adelante!",
+				"Nadie dijo que estudiar fuera fácil.",
+					"Estoy decidido a acabar mis estudios, por mi porvenir.",
+					"Esto es muy difícil, me doy por vencido.",
+				"Pero es que sin la beca no puedo asistir mucho a clase...",
+					"Puedo estudiar en casa y aprobar los exámenes, ¡Yo Puedo!",
+					"Mejor buscar otra cosa para seguir adelante.",
+			"Me quitan la beca; sin eso no puedo hacer nada...",
+				"Quizás me puedan ayudar en casa, ¿no?",
+					"¡Con la ayuda de casa puedo seguir estudiando!",
 					"No me han podido ayudar en casa, tengo que dejar los estudios.",
-				"bb - Seguramente no me puedan ayudar en casa...",
-					"bba -  En casa quieren ayudarme, pero no es suficiente.",
-					"bbb - No tengo ninguna motivación para seguir adelante con los estudios.",
+				"Seguramente no me puedan ayudar en casa...",
+					"En casa quieren ayudarme, pero no es suficiente.",
+					"No tengo ninguna motivación para seguir adelante con los estudios.",
 	}
 end
 

@@ -1,13 +1,21 @@
 level = {}
+spheres1 = {}
+spheres2 = {}
+toRemove = {}
 
 function level.load()
+	collected_spheres = 0
+
 	images = {
 		levelbg = love.graphics.newImage('images/bg.jpg'),
 		platform = love.graphics.newImage('images/platform.png'),
+		sphere1 = love.graphics.newImage("/images/sphere1.png"),
+		sphere2 = love.graphics.newImage("/images/sphere2.png"),
 	}
 
 	-- Physics stuff
 	world = love.physics.newWorld(0, (9.81*32*10), true)
+	world:setCallbacks(beginContact,endContact)
 
 	-- Create the ground body at (0, 0) static
 	ground = love.physics.newBody(world, 0, 0, "static")
@@ -28,6 +36,7 @@ function level.load()
 	player_body = love.physics.newBody(world, 100, 142, 'dynamic')
 	player_shape = love.physics.newRectangleShape( 0, 0, 400/4, 142)
 	player_fixture = love.physics.newFixture(player_body, player_shape)
+	player_fixture:setUserData("Player")
 	player_body:setMassData(player_shape:computeMass( 1 ))
 
 	-- Platforms
@@ -53,14 +62,65 @@ function level.load()
 	addPlatform(platforms_defs, 1000+1280*3+320*3, 230, 10)
 	addPlatform(platforms_defs, 650+1280*3+320*3, 450, 11)
 	addPlatform(platforms_defs, 850+1280*3+320*3, 450, 12)
-	-- addPlatform(platforms_defs, 500, 200, 5)
-	-- addPlatform(platforms_defs, 675, 200, 6)
-	-- addPlatform(platforms_defs, 950, 350, 7)
-	-- addPlatform(platforms_defs, 650, 450, 6)
+
+	ground_fixture1:setUserData("Ground")
+	ground_fixture2:setUserData("Ground")
+	ground_fixture3:setUserData("Ground")
+	ground_fixture4:setUserData("Ground")
+
+
+	-- Spheres
+	balldefs = {
+		{ i = images.sphere1, r = 20 , ox = 20, oy = 20},
+		{ i = images.sphere2, r = 20 , ox = 20, oy = 20},
+	}
+
+	addSpheres1(balldefs[1], 400, 400, 1)
 
 	level.bg_posx = 0
 
 	level.ground_level = 620
+end
+
+function addSpheres1(def, x, y, i)
+	local t = {}
+	t.b = love.physics.newBody(world, x, y, "static")
+	t.s = love.physics.newCircleShape(def.r)
+	t.f = love.physics.newFixture(t.b, t.s)
+	t.f:setUserData(i)
+	t.i = def.i
+	t.ox = def.ox
+	t.oy = def.oy
+	t.b:setMassData(t.s:computeMass( 1 ))
+	table.insert(spheres1, t)
+end
+
+
+function remove_sphere(sphere_number)
+	for i, v in ipairs(spheres1) do
+		if i == sphere_number then
+			v.b:setActive(false)
+			v = nil
+		end
+	end
+end
+
+-- This is called every time a collision begin.
+function beginContact(a, b, c)
+	local aa=a:getUserData()
+	local bb=b:getUserData()
+	text = "Collided: " .. aa .. " and " .. bb
+
+	if aa == "Player" and bb ~= "Ground" then
+		table.insert(toRemove,tonumber(bb))
+	end
+end
+
+-- This is called every time a collision end.
+function endContact(a, b, c)
+	local aa=a:getUserData()
+	local bb=b:getUserData()
+	text = "Collision ended: " .. aa .. " and " .. bb
 end
 
 function level.draw()
@@ -83,6 +143,13 @@ function level.draw()
 	for i, v in ipairs(platforms) do
 		if v.b:isActive() then
 			love.graphics.draw(images.platform, v.b:getX() - 100, v.b:getY() - 10, v.b:getAngle(), 1, 1, v.ox, v.oy)
+		end
+	end
+
+	love.graphics.setColor(255, 255, 255)
+	for i, v in ipairs(spheres1) do
+		if v.b:isActive() then
+			love.graphics.draw(v.i, v.b:getX()-30, v.b:getY()-30, v.b:getAngle(), 1, 1, v.ox, v.oy)
 		end
 	end
 end
@@ -119,6 +186,10 @@ end
 
 function level.update(dt)
 	world:update(dt)
+
+	for i, v in ipairs(toRemove) do
+		remove_sphere(v)
+	end
 end
 
 function UPDATE_LEVEL(dt)
