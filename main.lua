@@ -1,10 +1,12 @@
 sodapop = require '/lua/lib/sodapop'
+require '/lua/lib/TEsound'
 
 require '/lua/level'
 require '/lua/player/player'
 require '/lua/player/player_animation'
 require '/lua/thoughts'
 require '/lua/gui'
+require '/lua/music'
 
 math.randomseed( os.time() )
 
@@ -14,6 +16,7 @@ function love.load()
 	player_animation.load()
 	thoughts.load()
 	gui.load()
+	music.load()
 
 	f = love.graphics.newFont( "fonts/Red_Alert_INET.ttf", 44 )
 	f2 = love.graphics.newFont( "fonts/Red_Alert_INET.ttf", 18 )
@@ -25,6 +28,7 @@ function love.update(dt, key)
 	UPDATE_GUI(dt)
 	UPDATE_THOUGHTS(dt, key)
 	UPDATE_PLAYER(dt)
+	UPDATE_MUSIC(dt)
 
 	local fps=love.timer.getFPS
 	love.window.setTitle("Ludum Dare 30 - "..fps().." FPS")

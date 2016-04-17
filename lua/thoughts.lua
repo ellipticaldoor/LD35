@@ -6,18 +6,18 @@ function thoughts.load()
 	thoughts.phrases = {
 		"a - Qué dura la vida de estudiante...",
 			"aa - ¡Aunque no tenga la beca voy a seguir adelante!",
-			    "aaa - Aún puedo seguir estudiando sin trabajar.",
-					"aab - Trabajaré y después seguiré mis estudios.",
+				"aaa - Aún puedo seguir estudiando sin trabajar.",
+				"aab - Trabajaré y después seguiré mis estudios.",
 			"ab - ¿Tendré que trabajar para seguir estudiando?",
-			    "aba - Puedo trabajar y aprobar los exámenes, ¡Yo Puedo!",
-					"abb - Mejor trabajar para seguir adelante.",
+				"aba - Puedo trabajar y aprobar los exámenes, ¡Yo Puedo!",
+				"abb - Mejor trabajar para seguir adelante.",
 		"b - Me quitan la beca, sin eso no puedo hacer nada...",
 			"ba - No me importaría trabajar mientras estudio.",
-				  "baa - Trabajaré mientras estudio, espero aprobar.",
-					"bab - Bueno, pues me toca trabajar...",
+				"baa - Trabajaré mientras estudio, espero aprobar.",
+				"bab - Bueno, pues me toca trabajar...",
 			"bb - Seguramente tenga que empezar a trabajar...",
-					"bba -  Sí, tengo que empezar a trabajar.",
-					"bbb -Definitivamente tengo que dejar de estudiar para trabajar.",
+				"bba -  Sí, tengo que empezar a trabajar.",
+				"bbb -Definitivamente tengo que dejar de estudiar para trabajar.",
 	}
 end
 

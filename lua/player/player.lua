@@ -7,6 +7,7 @@ function player.load()
 	player.height = 100
 	player.can_move = true
 	player.current_animation = 'quieto'
+	player.walking = false
 end
 
 
@@ -24,6 +25,8 @@ end
 
 function player.move(dt)
 	if love.keyboard.isDown( 'right', 'left', 'space' ) == false then
+		player.walking = false
+
 		if player.current_animation ~= 'quieto' then
 			player.current_animation = 'quieto'
 			player.animation:switch 'quieto'
@@ -31,6 +34,8 @@ function player.move(dt)
 	end
 
 	if love.keyboard.isDown('right') then
+		player.walking = true
+
 		if player.current_animation ~= 'walk_right' then
 			player.current_animation = 'walk_right'
 			player.animation:switch(player.current_animation)
@@ -50,6 +55,8 @@ function player.move(dt)
 	end
 
 	if love.keyboard.isDown('left') then
+		player.walking = true
+
 		if player.current_animation ~= 'walk_left' then
 			player.current_animation = 'walk_left'
 			player.animation:switch(player.current_animation)
