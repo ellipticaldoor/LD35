@@ -44,6 +44,7 @@ function player.move(dt)
 		end
 
 		if player.can_move == false then
+			level.syncPos("right", dt)
 			level.bg_posx = level.bg_posx - player.vel * dt
 		end
 	end
@@ -55,6 +56,7 @@ function player.move(dt)
 		end
 
 		if level.bg_posx < 0 then
+			level.syncPos("left", dt)
 			level.bg_posx = level.bg_posx + player.vel * dt
 		else
 			player_body:setX(player_body:getX() - player.vel * dt)
@@ -62,9 +64,10 @@ function player.move(dt)
 	end
 
 	if love.keyboard.isDown('space') or love.keyboard.isDown('up') then
-		player_body:applyLinearImpulse(0,-2000)
-		print("holas")
+		player_body:applyLinearImpulse(0,-10000)
 	end
+
+	player_body:applyLinearImpulse(0,1)
 end
 
 

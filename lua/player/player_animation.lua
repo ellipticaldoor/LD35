@@ -5,22 +5,22 @@ function player_animation.load()
 
 	player.animation:addAnimation('walk_right', {
 		image = love.graphics.newImage '/images/player_walk_right.png',
-		frameWidth = 840/4,
-		frameHeight = 298,
+		frameWidth = 564/4,
+		frameHeight = 200,
 		frames = {{1, 1, 4, 1, .15}}
 	})
 
 	player.animation:addAnimation('walk_left', {
 		image = love.graphics.newImage '/images/player_walk_left.png',
-		frameWidth = 840/4,
-		frameHeight = 298,
+		frameWidth = 564/4,
+		frameHeight = 200,
 		frames = {{1, 1, 4, 1, .15}}
 	})
 
 	player.animation:addAnimation('quieto', {
 		image = love.graphics.newImage '/images/player_walk_right.png',
-		frameWidth = 840/4,
-		frameHeight = 298,
+		frameWidth = 564/4,
+		frameHeight = 200,
 		frames = {{1, 1, 1, 1, .15}}
 	})
 

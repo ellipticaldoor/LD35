@@ -9,14 +9,24 @@ function level.load()
 	-- Physics stuff
 	world = love.physics.newWorld(0, (9.81*32), true)
 
-	-- Level bodys
-	ground = love.physics.newBody(world, 1280/2, 646, 'static')
-	ground_shape = love.physics.newRectangleShape(1280, 10)
-	ground_fixture = love.physics.newFixture( ground, ground_shape)
+	-- Create the ground body at (0, 0) static
+	ground = love.physics.newBody(world, 0, 0, "static")
+
+	-- Create the ground shape at (400,500) with size (600,10).
+	ground_shape = love.physics.newRectangleShape( 740, 630, 2080, 10)
+	ground_shape2 = love.physics.newRectangleShape( 740, 20, 2080, 10)
+	ground_shape3 = love.physics.newRectangleShape( 0, 365, 10, 800)
+	ground_shape4 = love.physics.newRectangleShape( 1280, 400, 10, 800)
+
+	-- Create fixture between body and shape
+	ground_fixture1 = love.physics.newFixture( ground, ground_shape)
+	ground_fixture2 = love.physics.newFixture( ground, ground_shape2)
+	ground_fixture3 = love.physics.newFixture( ground, ground_shape3)
+	ground_fixture4 = love.physics.newFixture( ground, ground_shape4)
 
 	player_skin = love.graphics.newImage('images/player.png')
-	player_body = love.physics.newBody(world, 200, 300, 'dynamic')
-	player_shape = love.physics.newRectangleShape( 0, 0, 300, 300)
+	player_body = love.physics.newBody(world, 100, 200, 'dynamic')
+	player_shape = love.physics.newRectangleShape( 0, 0, 564/4, 200)
 	player_fixture = love.physics.newFixture(player_body, player_shape)
 	player_body:setMassData(player_shape:computeMass( 1 ))
 
@@ -27,6 +37,8 @@ function level.load()
 	}
 
 	addPlatform(platforms_defs, 400, 200, 1)
+	addPlatform(platforms_defs, 1000, 400, 2)
+	addPlatform(platforms_defs, 2000, 400, 3)
 
 	level.bg_posx = 0
 
@@ -45,6 +57,9 @@ function level.draw()
 	-- Draws the ground
 	love.graphics.setColor(255, 255, 255)
 	love.graphics.polygon('line', ground:getWorldPoints(ground_shape:getPoints()))
+	love.graphics.polygon('line', ground:getWorldPoints(ground_shape2:getPoints()))
+	love.graphics.polygon('line', ground:getWorldPoints(ground_shape3:getPoints()))
+	love.graphics.polygon('line', ground:getWorldPoints(ground_shape4:getPoints()))
 
 	-- Draws the platforms
 	for i, v in ipairs(platforms) do
@@ -66,6 +81,22 @@ function addPlatform(def, x, y, i)
 	t.oy = def.oy
 	t.b:setMassData(t.s:computeMass( 1 ))
 	table.insert(platforms, t)
+end
+
+function level.syncPos(direction, dt)
+	local vel = player.vel * dt
+
+	if direction == "left" then
+		level.bg_posx = level.bg_posx + vel
+		for i, v in ipairs(platforms) do
+			v.b:setX( v.b:getX() + vel )
+		end
+	else
+		level.bg_posx = level.bg_posx - vel
+		for i, v in ipairs(platforms) do
+			v.b:setX( v.b:getX() - vel )
+		end
+	end
 end
 
 function level.update(dt)
