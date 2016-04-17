@@ -134,7 +134,7 @@ function level.draw()
 	love.graphics.draw(images.levelbg, level.bg_posx, 0)
 
 	-- Dibujar el suelo
-	love.graphics.setColor(41, 128, 185)
+	love.graphics.setColor(255, 255, 255)
 	love.graphics.rectangle('fill', 0, level.ground_level, 1280, 200)
 
 	-- -- Draws the ground
