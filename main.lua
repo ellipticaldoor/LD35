@@ -19,12 +19,12 @@ function love.load()
 	f2 = love.graphics.newFont( "fonts/Red_Alert_INET.ttf", 18 )
 end
 
-function love.update(dt)
+function love.update(dt, key)
 	UPDATE_LEVEL(dt)
 	UPDATE_PLAYER(dt)
 	UPDATE_PLAYER_ANIMATION(dt)
 	UPDATE_GUI(dt)
-	UPDATE_THOUGHTS(dt)
+	UPDATE_THOUGHTS(dt, key)
 
 	local fps=love.timer.getFPS
 	love.window.setTitle("Ludum Dare 30 - "..fps().." FPS")
@@ -39,5 +39,7 @@ function love.draw()
 end
 
 function love.keypressed(key)
+	thoughts.key(key)
+
 	if key == 'escape' then love.event.quit() end
 end
