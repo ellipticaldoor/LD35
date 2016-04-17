@@ -32,10 +32,39 @@ end
 
 
 function thoughts.update(dt)
+	function raiseHappy()
+		music.track2Volume=music.track2Volume+0.33
+		if(music.track2Volume > 1) then music.track2Volume = 1 end
+		TEsound.volume("happy_music", music.track2Volume)
 
+
+		music.track3Volume=music.track3Volume-0.33
+		if(music.track3Volume < 0) then music.track3Volume = 0 end
+		TEsound.volume("tragic_music", music.track3Volume)
+	end
+
+	function raiseTragic()
+		music.track3Volume=music.track3Volume+0.33
+		if(music.track3Volume > 1) then music.track3Volume = 1 end
+		TEsound.volume("tragic_music", music.track3Volume)
+
+		music.track2Volume=music.track2Volume-0.33
+		if(music.track2Volume < 0) then music.track2Volume = 0 end
+		TEsound.volume("happy_music", music.track2Volume)
+	end
 end
 
 function yesChoice()
+	if(music.track3Volume == 0)then
+		music.track2Volume=music.track2Volume+0.33
+		if(music.track2Volume > 1) then music.track2Volume = 1 end
+		TEsound.volume("happy_music", music.track2Volume)
+	else
+		music.track3Volume=music.track3Volume-0.33
+		if(music.track3Volume < 0.2) then music.track3Volume = 0 end
+		TEsound.volume("tragic_music", music.track3Volume)
+	end
+
 	if thoughts.current == 13 then thoughts.current = 14 end
 	if thoughts.current == 10 then thoughts.current = 11 end
 	if thoughts.current == 9 then thoughts.current = 10 end
@@ -46,6 +75,16 @@ function yesChoice()
 end
 
 function noChoice()
+	if(music.track2Volume < 0.2)then
+		music.track3Volume=music.track3Volume+0.33
+		if(music.track3Volume > 1) then music.track3Volume = 1 end
+		TEsound.volume("tragic_music", music.trac32Volume)
+	else
+		music.track2Volume=music.track2Volume-0.33
+		if(music.track2Volume < 0) then music.track2Volume = 0 end
+		TEsound.volume("happy_music", music.track2Volume)
+	end
+
 	if thoughts.current == 13 then thoughts.current = 15 end
 	if thoughts.current == 10 then thoughts.current = 12 end
 	if thoughts.current == 9 then thoughts.current = 13 end
