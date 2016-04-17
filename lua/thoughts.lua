@@ -6,18 +6,19 @@ function thoughts.load()
 	thoughts.phrases = {
 		"a - Qué dura la vida de estudiante...",
 			"aa - ¡Aunque no tenga la beca voy a seguir adelante!",
-				"aaa - Aún puedo seguir estudiando sin trabajar.",
-				"aab - Trabajaré y después seguiré mis estudios.",
-			"ab - ¿Tendré que trabajar para seguir estudiando?",
-				"aba - Puedo trabajar y aprobar los exámenes, ¡Yo Puedo!",
-				"abb - Mejor trabajar para seguir adelante.",
-		"b - Me quitan la beca, sin eso no puedo hacer nada...",
-			"ba - No me importaría trabajar mientras estudio.",
-				"baa - Trabajaré mientras estudio, espero aprobar.",
-				"bab - Bueno, pues me toca trabajar...",
-			"bb - Seguramente tenga que empezar a trabajar...",
-				"bba -  Sí, tengo que empezar a trabajar.",
-				"bbb -Definitivamente tengo que dejar de estudiar para trabajar.",
+				"aaa -Nadie dijo que estudiar fuera fácil.",
+					"aab - Estoy decidido a acabar mis estudios, por mi porvenir.",
+					"ab - Esto es muy difícil, me doy por vencido.",
+				"aba - Pero es que sin la beca no puedo asistir mucho a clase...",
+					"abb - Puedo estudiar en casa y aprobar los exámenes, ¡Yo Puedo!",
+					"b - Mejor buscar otra cosa para seguir adelante.",
+			"ba - Me quitan la beca; sin eso no puedo hacer nada...",
+				"baa - Quizás me puedan ayudar en casa, ¿no?",
+					"bab - ¡Con la ayuda de casa puedo seguir estudiando!",
+					"No me han podido ayudar en casa, tengo que dejar los estudios.",
+				"bb - Seguramente no me puedan ayudar en casa...",
+					"bba -  En casa quieren ayudarme, pero no es suficiente.",
+					"bbb - No tengo ninguna motivación para seguir adelante con los estudios.",
 	}
 end
 
@@ -31,16 +32,7 @@ end
 
 
 function thoughts.update(dt)
-	if love.keyboard.isDown('x') then
-		music.track1Volume=music.track1Volume+0.1
-		if(music.track1Volume > 1) then music.track1Volume = 1 end
-		TEsound.volume("bg_music_1", music.track1Volume)
-	end
-	if love.keyboard.isDown('c') then
-		music.track1Volume=music.track1Volume-0.1
-		if(music.track1Volume < 0) then music.track1Volume = 0 end
-		TEsound.volume("bg_music_1", music.track1Volume)
-	end
+
 end
 
 function thoughts.key(key)
